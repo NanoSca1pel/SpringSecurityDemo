@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="/user/login" method="post">
+        <!--当开启csrf防护时需要添加csrf隐藏参数-->
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+        用户名: <input type="text" name="username"><br>
+        密码: <input type="password" name="password"><br>
+        <!--rememberMe的复选框按钮名称必须是remember-me，否则无法成功。 底层配置-->
+        <input type="checkbox" name = "remember-me">自动登录<br>
+        <button type="submit" value="login">登录</button>
+    </form>
+</body>
+</html>
